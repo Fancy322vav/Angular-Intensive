@@ -1,0 +1,10 @@
+<div>
+  <div> Your result:{{dice()[0]}} / {{dice()[1]}} </div>
+  <app-dice-roller [result]="summary()" (roll)="handleDiceRoll()" />
+  <p>History:</p>
+  <div>
+    @for(roll of history(); track $index){
+    <span>{{roll | formatRoll}}</span>
+    }
+  </div>
+</div>
