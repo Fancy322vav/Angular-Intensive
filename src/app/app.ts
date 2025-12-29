@@ -1,12 +1,18 @@
-import { Component, signal } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { RandomDirective } from './direcrives/random-bg.directive';
+import { HideContent } from './direcrives/hide-content.directive';
+import { ClickCounterDirective } from './direcrives/click-counter.directive';
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [RandomDirective, HideContent, ClickCounterDirective],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
-
 export class App {
-  protected readonly title = signal("Clear branch");
+  clickCounter = 0;
+
+  onClickCount(counter: number) {
+    this.clickCounter = counter
+  }
 }

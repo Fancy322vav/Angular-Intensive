@@ -1,3 +1,10 @@
-<div>
-  {{title()}}
-  </div>
+<div appRandomBg>Click me to change background color</div>
+<div appRandomBg>Another element with a random background</div>
+
+<div appHideContent>Double click me to hide</div>
+<div appHideContent>Another element to hide</div>
+
+<div appClickCounter (clickCount)="onClickCount($event)">
+  Click me to count clicks</div>
+
+<p>Number of clicks:{{clickCounter}}</p>

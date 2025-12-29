@@ -1,6 +1,6 @@
-# Dice
+# Mini color app
 
-A simple dice rolling game built with Angular. Roll two dice and try to get a sum of 7 to win! The app displays your current roll result, tracks your rolling history, and shows whether each roll is a win or loss.
+A simple color picker application built with Angular. Select colors and create your own color palette.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 

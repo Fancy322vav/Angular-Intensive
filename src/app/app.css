@@ -1,0 +1,6 @@
+div {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
