@@ -14,4 +14,9 @@ export class DataServise {
       map(todos => todos.filter(todo => todo.id % 2 === 0))
     )
   }
+
+  getRandomTodo(): Observable<ITodo> {
+    const randomId = Math.floor(Math.random() * 200) + 1;
+    return this.http.get<ITodo>(`https://jsonplaceholder.typicode.com/todos/${randomId}`)
+  }
 }

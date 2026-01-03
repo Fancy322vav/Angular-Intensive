@@ -1,9 +1,13 @@
-<div>
-  @if(errorMessage()){
+<div style="display: flex;">
+  @if(isLoading()){
+  <div>Loading...</div>
+  }
+  @else if(errorMessage()){
   <div>Error occured: {{ errorMessage() }}</div>
   } @else{ @for(todo of todos(); track todo.id){
   <div>
     <span>{{ todo.id }}: </span><span>{{ todo.title }}</span>
   </div>
   } }
-  </div>
+</div>
+<random-todo />

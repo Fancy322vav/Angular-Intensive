@@ -1,0 +1,12 @@
+<div>
+  <button #randomId>Get Random ITodo</button>
+  @if(isLoading()){
+  <div>Loading...</div>
+  }@else if(errorMessage()){
+  <div>Error occured: {{ errorMessage() }}</div>
+  } @else if (randomTodo()){
+  <div>
+    <span>{{ randomTodo()?.id }}: </span><span>{{ randomTodo()?.title }}</span>
+  </div>
+  }
+</div>
