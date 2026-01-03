@@ -1,0 +1,14 @@
+<div class="random-todo-container">
+  <h3>Random Todo</h3>
+  <button class="btn btn-random" #randomId>Get Random Todo</button>
+  @if(isLoading()){
+  <div class="loading">Loading...</div>
+  }@else if(errorMessage()){
+  <div class="error">Error occurred: {{ errorMessage() }}</div>
+  } @else if (randomTodo()){
+  <div class="todo-result">
+    <span class="result-id">{{ randomTodo()?.id }}</span>
+    <span class="result-title">{{ randomTodo()?.title }}</span>
+  </div>
+  }
+</div>

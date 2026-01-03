@@ -1,13 +1,25 @@
-<div style="display: flex;">
-  @if(isLoading()){
-  <div>Loading...</div>
-  }
-  @else if(errorMessage()){
-  <div>Error occured: {{ errorMessage() }}</div>
-  } @else{ @for(todo of todos(); track todo.id){
-  <div>
-    <span>{{ todo.id }}: </span><span>{{ todo.title }}</span>
-  </div>
-  } }
+<div class="app-container">
+  <section class="todo-list-section">
+    <h2>Todo List (Even IDs)</h2>
+    @if(isLoading()){
+    <div class="loading">Loading...</div>
+    }
+    @else if(errorMessage()){
+    <div class="error">Error occurred: {{ errorMessage() }}</div>
+    } @else{
+    <div class="todo-list">
+      @for(todo of todos(); track todo.id){
+      <div class="todo-item">
+        <span class="todo-id">{{ todo.id }}</span>
+        <span class="todo-title">{{ todo.title }}</span>
+      </div>
+      }
+    </div>
+    }
+  </section>
+
+  <section class="components-section">
+    <random-todo />
+    <exact-todo />
+  </section>
 </div>
-<random-todo />

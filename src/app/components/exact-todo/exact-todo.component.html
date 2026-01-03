@@ -1,0 +1,22 @@
+<div class="exact-todo-container">
+  <h3>Exact Todo by ID</h3>
+  <div class="counter-display">
+    Current ID: <strong>{{ currentCounter }}</strong>
+  </div>
+  <div class="button-group">
+    <button class="btn btn-primary" (click)="increment()">Increment ID by 1</button>
+    <button class="btn btn-secondary" (click)="decrement()" [disabled]="isDecrementDisabled">
+      Decrement ID by 1
+    </button>
+  </div>
+  @if(isLoading()){
+  <div class="loading">Loading...</div>
+  } @else if(errorMessage()){
+  <div class="error">Error occurred: {{ errorMessage() }}</div>
+  } @else if (todo()){
+  <div class="todo-result">
+    <span class="result-id">{{ todo()?.id }}</span>
+    <span class="result-title">{{ todo()?.title }}</span>
+  </div>
+  }
+</div>

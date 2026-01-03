@@ -1,12 +1,13 @@
 import { Component, ElementRef, OnInit, signal, ViewChild } from '@angular/core';
 import { DataServise } from './services/data.service';
 import { ITodo } from './services/data.interface';
-import { RandomTodo } from './components/random-todo.component';
+import { RandomTodo } from './components/random-todo/random-todo.component';
 import { finalize } from 'rxjs';
+import { ExactTodo } from './components/exact-todo/exact-todo.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RandomTodo],
+  imports: [RandomTodo, ExactTodo],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

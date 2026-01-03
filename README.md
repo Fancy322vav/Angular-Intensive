@@ -1,6 +1,12 @@
-# Dice
+# TodoFetch
 
-A simple dice rolling game built with Angular. Roll two dice and try to get a sum of 7 to win! The app displays your current roll result, tracks your rolling history, and shows whether each roll is a win or loss.
+An Angular application demonstrating RxJS-based data fetching with multiple approaches. The app fetches and displays todos from JSONPlaceholder API with three different methods:
+
+1. **Todo List (Even IDs)** - Fetches and filters todos with even IDs
+2. **Random Todo** - Fetches a random todo using `fromEvent` and `switchMap`
+3. **Exact Todo by ID** - Uses RxJS-based counter store with `BehaviorSubject` to fetch specific todos
+
+This project demonstrates modern Angular 21 features including signals, standalone components, and reactive patterns with RxJS.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
@@ -37,6 +43,25 @@ ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Features
+
+- **RxJS Observables**: HTTP requests using Angular's `HttpClient`
+- **Signal-based State**: Modern Angular signals for reactive state management
+- **RxJS Store Pattern**: Custom counter service using `BehaviorSubject`
+- **Higher-Order Observables**: `switchMap` for handling nested Observables
+- **Event Handling**: `fromEvent` for DOM event streams
+- **Error Handling**: Proper error states and loading indicators
+- **Responsive Design**: Clean, modern UI with CSS Grid layout
+
+## Technologies Used
+
+- Angular 21
+- RxJS 7.8
+- TypeScript 5.9
+- Standalone Components
+- Signals API
+- JSONPlaceholder API
 
 ## Additional Resources
 

@@ -19,4 +19,8 @@ export class DataServise {
     const randomId = Math.floor(Math.random() * 200) + 1;
     return this.http.get<ITodo>(`https://jsonplaceholder.typicode.com/todos/${randomId}`)
   }
+
+  getExactTodo(todoId: number): Observable<ITodo> {
+    return this.http.get<ITodo>(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
+  }
 }

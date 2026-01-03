@@ -1,13 +1,13 @@
 import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { fromEvent, switchMap, tap } from 'rxjs';
-import { ITodo } from '../services/data.interface';
-import { DataServise } from '../services/data.service';
+import { ITodo } from '../../services/data.interface';
+import { DataServise } from '../../services/data.service';
 
 @Component({
   selector: 'random-todo',
   imports: [],
-  templateUrl: './random-todo.html',
-  styleUrl: './random-todo.css'
+  templateUrl: './random-todo.component.html',
+  styleUrl: './random-todo.component.css'
 })
 
 export class RandomTodo implements AfterViewInit {
