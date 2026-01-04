@@ -1,15 +1,15 @@
-import { Directive, ElementRef, HostListener, inject } from "@angular/core";
+import { Directive, ElementRef, HostListener, inject, Renderer2 } from "@angular/core";
 
 @Directive({
   selector: '[appRandomBg]',
   standalone: true
 })
 export class RandomDirective {
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   @HostListener('click') Onclick() {
     const randomColor = this.getRandomColor();
-    this.el.nativeElement.style.backgroundColor = randomColor;
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', randomColor);
   }
   public getRandomColor(): string {
     const letters = '0123456789ABCDEF';
