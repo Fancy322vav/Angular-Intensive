@@ -1,6 +1,13 @@
-# Dice
+# Factory
 
-A simple dice rolling game built with Angular. Roll two dice and try to get a sum of 7 to win! The app displays your current roll result, tracks your rolling history, and shows whether each roll is a win or loss.
+An Angular application demonstrating advanced dependency injection patterns including factory providers, global and local service instances, and RxJS-based state management.
+
+## Features
+
+- **Global & Local Counters**: Demonstrates `@Self()` and `@SkipSelf()` decorators for controlling dependency injection scope
+- **Factory Provider Pattern**: Uses factory functions to conditionally provide different analytics services based on the day of the week
+- **RxJS State Management**: BehaviorSubject-based state management for reactive counter and analytics services
+- **InjectionToken**: Custom injection tokens for abstract service dependencies
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 

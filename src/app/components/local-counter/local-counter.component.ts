@@ -6,6 +6,7 @@ import { CounterService } from '../../services/counter.service';
   imports: [],
   providers: [CounterService],
   templateUrl: './local-counter.component.html',
+  styleUrl: './local-counter.component.css'
 })
 
 export class LocalCounter {

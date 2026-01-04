@@ -1,4 +1,16 @@
-<div>
-  <global-counter />
-  <local-counter />
+<div class="container">
+  <h1>Factory App</h1>
+
+  <div class="counters-grid">
+    <global-counter />
+    <local-counter />
   </div>
+
+  <div class="card analytics-section">
+    <h2>Analytics Tracker</h2>
+    <div class="analytics-message">
+      {{message$ | async}}
+    </div>
+    <button (click)="track()">Track Analytics</button>
+  </div>
+</div>
