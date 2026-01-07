@@ -1,7 +1,7 @@
 <div class="card">
   <h3>Local Counter</h3>
   <div class="counter-display">
-    Counter value: <strong>{{ currentCounter }}</strong>
+    Counter value: <strong>{{ currentCounter$ | async }}</strong>
   </div>
   <div class="button-group">
     <button (click)="increment()">Increment</button>

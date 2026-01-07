@@ -1,10 +1,11 @@
 import { Component, SkipSelf } from '@angular/core';
 import { CounterService } from '../../services/counter.service';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'global-counter',
-  imports: [],
-  providers: [CounterService],
+  imports: [AsyncPipe],
   templateUrl: './global-counter.component.html',
   styleUrl: './global-counter.component.css'
 })
@@ -12,8 +13,8 @@ import { CounterService } from '../../services/counter.service';
 export class GlobalCounter {
   constructor(@SkipSelf() private counterService: CounterService) { }
 
-  get currentCounter(): number {
-    return this.counterService.currentValue;
+  get currentCounter$(): Observable<number> {
+    return this.counterService.counter$;
   }
 
   increment() {
