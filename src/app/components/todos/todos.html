@@ -1,0 +1,14 @@
+<h1>Todos</h1>
+
+@if (isLodaing()) {
+<p>Loading todos...</p>
+}
+
+<ul>
+  @for (todo of todos(); track todo.id) {
+  <li (click)="onTodoClick(todo.id)">
+    <span class="todo-id">#{{ todo.id }}</span>
+    <span class="todo-title">{{ todo.title }}</span>
+  </li>
+  }
+</ul>

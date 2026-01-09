@@ -1,0 +1,42 @@
+h1 {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+li {
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.todo-id {
+  font-weight: bold;
+  color: #007bff;
+  min-width: 40px;
+  font-size: 14px;
+}
+
+.todo-title {
+  flex: 1;
+  color: #333;
+}
+
+li:hover {
+  background: #f0f8ff;
+  border-color: #007bff;
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}

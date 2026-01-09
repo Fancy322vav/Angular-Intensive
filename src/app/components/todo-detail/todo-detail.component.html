@@ -1,0 +1,10 @@
+@if (isLodaing()) {
+<p>Loading todo...</p>
+} @if (todo()) {
+<h1>Todo #{{ todo()?.id }}</h1>
+<p><strong>ID:</strong> {{ todo()?.id }}</p>
+<p><strong>User ID:</strong> {{ todo()?.userId }}</p>
+<p><strong>Title:</strong> {{ todo()?.title }}</p>
+<p><strong>Status:</strong> {{ todo()?.completed ? 'Completed' : 'Not Completed' }}</p>
+<a routerLink="/todos">Back</a>
+}
