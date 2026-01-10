@@ -1,6 +1,6 @@
-# Dice
+# Routing
 
-A simple dice rolling game built with Angular. Roll two dice and try to get a sum of 7 to win! The app displays your current roll result, tracks your rolling history, and shows whether each roll is a win or loss.
+An Angular application demonstrating routing concepts and navigation.
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
