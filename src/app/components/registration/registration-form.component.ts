@@ -1,11 +1,12 @@
-import { Component, signal, output } from '@angular/core';
-import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, output } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { minAgeValidator, hasCapitalLetterValidator, hasSpecialSymbolValidator, passwordMatchValidator } from '../../validators/registration/registration.validators';
 import { RegistrationData } from '../../interfaces/registration.interface';
+import { CustomHobbiesInput } from '../custom-hobbies-input/custom-hobbies-input.component';
 
 @Component({
   selector: 'registration-form',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CustomHobbiesInput],
   templateUrl: './registration-form.component.html',
   styleUrl: './registration-form.component.css'
 })
@@ -17,22 +18,10 @@ export class RegistrationForm {
     birthdate: new FormControl('', [Validators.required, minAgeValidator(14)]),
     password: new FormControl('', [Validators.required, Validators.minLength(3), hasCapitalLetterValidator, hasSpecialSymbolValidator]),
     confirmPassword: new FormControl('', [Validators.required]),
-    hobbies: new FormArray([new FormControl('')])
+    hobbies: new FormControl<string[]>([])
   }, { validators: passwordMatchValidator });
 
-  hobbies = signal<FormArray>(this.registrationForm.get('hobbies') as FormArray);
-
   formSubmitted = output<RegistrationData>();
-
-  addHobby() {
-    this.hobbies().push(new FormControl(''));
-  }
-
-  removeHobby(index: number) {
-    if (this.hobbies().length > 1) {
-      this.hobbies().removeAt(index);
-    }
-  }
 
   onSubmit() {
     if (this.registrationForm.valid) {

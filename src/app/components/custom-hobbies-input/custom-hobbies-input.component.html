@@ -1,0 +1,31 @@
+<div class="hobbies-container">
+  @for (hobby of hobbies(); track $index) {
+  <div class="hobby-item">
+    <input
+      type="text"
+      [value]="hobby"
+      (input)="updateHobby($index, $any($event.target).value)"
+      (blur)="markAsTouched()"
+      [disabled]="disabled"
+      placeholder="Enter a hobby"
+      class="hobby-input"
+    />
+    <button
+      type="button"
+      (click)="removeHobby($index)"
+      class="remove-hobby-btn"
+      [disabled]="hobbies().length === 1 || disabled"
+    >
+      Remove
+    </button>
+  </div>
+  }
+</div>
+<button
+  type="button"
+  (click)="addHobby()"
+  class="add-hobby-btn"
+  [disabled]="disabled"
+>
+  Add Hobby
+</button>

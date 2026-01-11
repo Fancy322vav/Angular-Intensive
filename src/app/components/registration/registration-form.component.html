@@ -87,29 +87,7 @@
 
     <div class="form-group">
       <label>Hobbies</label>
-      <div formArrayName="hobbies" class="hobbies-container">
-        @for (hobby of hobbies().controls; track $index) {
-        <div class="hobby-item">
-          <input
-            type="text"
-            [formControlName]="$index"
-            placeholder="Enter a hobby"
-            class="hobby-input"
-          >
-          <button
-            type="button"
-            (click)="removeHobby($index)"
-            class="remove-hobby-btn"
-            [disabled]="hobbies().length === 1"
-          >
-            Remove
-          </button>
-        </div>
-        }
-      </div>
-      <button type="button" (click)="addHobby()" class="add-hobby-btn">
-        Add Hobby
-      </button>
+      <custom-hobbies-input formControlName="hobbies"></custom-hobbies-input>
     </div>
 
     <button type="submit" class="submit-btn" [disabled]="registrationForm.invalid">Register</button>
