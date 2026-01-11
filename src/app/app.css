@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+registration-form {
+  flex: 1;
+  min-width: 450px;
+}
+
+user {
+  flex: 1;
+  min-width: 450px;
+}
+
+@media (max-width: 1024px) {
+  :host {
+    flex-direction: column;
+  }
+
+  registration-form,
+  user {
+    min-width: 100%;
+  }
+}

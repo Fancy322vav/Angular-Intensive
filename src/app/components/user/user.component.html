@@ -1,0 +1,37 @@
+@if (userData()) {
+<div class="user-data-container">
+  <h2>Registration Data</h2>
+
+  <div class="data-section">
+    <div class="data-item">
+      <span class="label">Email:</span>
+      <span class="value">{{ userData()?.email }}</span>
+    </div>
+
+    <div class="data-item">
+      <span class="label">Username:</span>
+      <span class="value">{{ userData()?.username }}</span>
+    </div>
+
+    <div class="data-item">
+      <span class="label">Birth Date:</span>
+      <span class="value">{{ userData()?.birthdate }}</span>
+    </div>
+
+    <div class="data-item">
+      <span class="label">Password:</span>
+      <span class="value">{{ userData()?.password }}</span>
+    </div>
+
+    <div class="data-item">
+      <span class="label">Confirm Password:</span>
+      <span class="value">{{ userData()?.confirmPassword }}</span>
+    </div>
+
+    <div class="data-item">
+      <span class="label">Hobbies:</span>
+      <span class="value">{{ userData()?.hobbies?.join(', ') || 'None' }}</span>
+    </div>
+  </div>
+</div>
+}

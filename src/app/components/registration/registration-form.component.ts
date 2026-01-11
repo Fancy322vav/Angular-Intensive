@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { minAgeValidator, hasCapitalLetterValidator, hasSpecialSymbolValidator, passwordMatchValidator } from '../../validators/registration/registration.validators';
+import { RegistrationData } from '../../interfaces/registration.interface';
 
 @Component({
   selector: 'registration-form',
@@ -21,6 +22,8 @@ export class RegistrationForm {
 
   hobbies = signal<FormArray>(this.registrationForm.get('hobbies') as FormArray);
 
+  formSubmitted = output<RegistrationData>();
+
   addHobby() {
     this.hobbies().push(new FormControl(''));
   }
@@ -28,6 +31,12 @@ export class RegistrationForm {
   removeHobby(index: number) {
     if (this.hobbies().length > 1) {
       this.hobbies().removeAt(index);
+    }
+  }
+
+  onSubmit() {
+    if (this.registrationForm.valid) {
+      this.formSubmitted.emit(this.registrationForm.value as RegistrationData);
     }
   }
 }
