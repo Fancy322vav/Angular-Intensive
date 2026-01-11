@@ -1,0 +1,117 @@
+<div class="registration-container">
+  <form class="registration-form" [formGroup]="registrationForm">
+    <h2>Registration</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" placeholder="Enter your email">
+      @if (registrationForm.get('email')?.invalid && registrationForm.get('email')?.touched) {
+      <div class="error-message">
+        @if (registrationForm.get('email')?.errors?.['required']) {
+        <span>Email is required</span>
+        }
+        @if (registrationForm.get('email')?.errors?.['email']) {
+        <span>Please enter a valid email address</span>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username" placeholder="Enter your username">
+      @if (registrationForm.get('username')?.invalid && registrationForm.get('username')?.touched) {
+      <div class="error-message">
+        @if (registrationForm.get('username')?.errors?.['required']) {
+        <span>Username is required</span>
+        }
+        @if (registrationForm.get('username')?.errors?.['minlength']) {
+        <span>Username must be at least 3 characters long</span>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="birthdate">Birth Date</label>
+      <input type="date" id="birthdate" formControlName="birthdate">
+      @if (registrationForm.get('birthdate')?.invalid && registrationForm.get('birthdate')?.touched) {
+      <div class="error-message">
+        @if (registrationForm.get('birthdate')?.errors?.['required']) {
+        <span>Birth date is required</span>
+        }
+        @if (registrationForm.get('birthdate')?.errors?.['minAge']) {
+        <span>You must be at least 14 years old to register</span>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+      @if (registrationForm.get('password')?.invalid && registrationForm.get('password')?.touched) {
+      <div class="error-message">
+        @if (registrationForm.get('password')?.errors?.['required']) {
+        <span>Password is required</span>
+        }
+        @if (registrationForm.get('password')?.errors?.['minlength']) {
+        <span>Password must be at least 3 characters long</span>
+        }
+        @if (registrationForm.get('password')?.errors?.['capitalLetter']) {
+        <span>Password must contain at least one capital letter</span>
+        }
+        @if (registrationForm.get('password')?.errors?.['specialSymbol']) {
+        <span>Password must contain at least one special symbol (!#$%&)</span>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword" placeholder="Confirm your password">
+      @if (registrationForm.get('confirmPassword')?.invalid && registrationForm.get('confirmPassword')?.touched) {
+      <div class="error-message">
+        @if (registrationForm.get('confirmPassword')?.errors?.['required']) {
+        <span>Please confirm your password</span>
+        }
+      </div>
+      }
+      @if (registrationForm.errors?.['passwordMismatch'] && registrationForm.get('confirmPassword')?.touched) {
+      <div class="error-message">
+        <span>Passwords do not match</span>
+      </div>
+      }
+    </div>
+
+    <div class="form-group">
+      <label>Hobbies</label>
+      <div formArrayName="hobbies" class="hobbies-container">
+        @for (hobby of hobbies().controls; track $index) {
+        <div class="hobby-item">
+          <input
+            type="text"
+            [formControlName]="$index"
+            placeholder="Enter a hobby"
+            class="hobby-input"
+          >
+          <button
+            type="button"
+            (click)="removeHobby($index)"
+            class="remove-hobby-btn"
+            [disabled]="hobbies().length === 1"
+          >
+            Remove
+          </button>
+        </div>
+        }
+      </div>
+      <button type="button" (click)="addHobby()" class="add-hobby-btn">
+        Add Hobby
+      </button>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="registrationForm.invalid">Register</button>
+  </form>
+</div>
