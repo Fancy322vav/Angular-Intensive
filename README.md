@@ -1,14 +1,38 @@
-# Dice
+# Registration Form Application
 
-A simple dice rolling game built with Angular. Roll two dice and try to get a sum of 7 to win! The app displays your current roll result, tracks your rolling history, and shows whether each roll is a win or loss.
+A user registration form application built with Angular 21. The app features a comprehensive registration form with validation, custom hobbies input using Control Value Accessor pattern, and displays user data upon successful submission.
+
+## Features
+
+- **Reactive Forms** - Built with Angular Reactive Forms for robust form handling
+- **Comprehensive Validation** - Includes email, username, password strength, and age validation
+- **Custom Form Controls** - Implements custom hobbies input component using Control Value Accessor
+- **Password Requirements** - Enforces minimum length, capital letters, and special symbols
+- **Age Verification** - Minimum age requirement (14 years)
+- **User Profile Display** - Shows registered user data after successful form submission
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.1.
 
-## Development server
+## Getting Started
+
+### Prerequisites
+
+- Node.js (with npm 11.6.2 or compatible)
+- Angular CLI 21.0.1
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development server
 
 To start a local development server, run:
 
 ```bash
+npm start
+# or
 ng serve
 ```
 
@@ -33,10 +57,46 @@ ng generate --help
 To build the project run:
 
 ```bash
+npm run build
+# or
 ng build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+## Testing
+
+To run tests:
+
+```bash
+npm test
+```
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── components/
+│   │   ├── registration/          # Registration form component
+│   │   ├── user/                  # User profile display component
+│   │   └── custom-hobbies-input/  # Custom CVA hobbies input
+│   ├── validators/
+│   │   └── registration/          # Custom form validators
+│   ├── interfaces/                # TypeScript interfaces
+│   ├── app.ts                     # Root component
+│   └── app.routes.ts              # Application routes
+└── main.ts                        # Application entry point
+```
+
+## Custom Validators
+
+The application includes several custom validators:
+
+- **minAgeValidator** - Validates minimum age requirement
+- **hasCapitalLetterValidator** - Ensures password contains capital letters
+- **hasSpecialSymbolValidator** - Ensures password contains special symbols
+- **passwordMatchValidator** - Validates that password and confirm password match
 
 ## Additional Resources
 
